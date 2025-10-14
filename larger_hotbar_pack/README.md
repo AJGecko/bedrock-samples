@@ -7,7 +7,9 @@ This resource pack makes the hotbar in Minecraft Bedrock Edition larger for bett
 - **Larger Hotbar Slots**: The hotbar slots are increased from 20x22 pixels to 30x33 pixels (50% larger)
 - **Larger Item Icons**: Item icons are scaled up from 16x16 to 24x24 pixels
 - **Larger Selected Slot Indicator**: The selected slot frame is increased from 24x24 to 36x36 pixels
+- **Proper Container Sizing**: The exp_progress_bar_and_hotbar container is resized to 42 pixels height to accommodate the larger hotbar
 - **All Elements Scaled Proportionally**: Includes caps, buttons, and other UI elements
+- **Classic UI Compatible**: Fixes alignment and centering issues with the Classic UI
 
 ## Installation
 
@@ -38,13 +40,12 @@ You can change these values to any size you prefer. For example:
 - **100% larger**: `[ 40, 44 ]`
 - **25% larger**: `[ 25, 27.5 ]`
 
-Make sure to update all instances in the file for consistent scaling:
-- `hotbar_renderer_size`
-- `gui_hotbar_grid_item` size
-- `hotbar_slot_image_size`
-- `hotbar_panel` size
-- Item icon sizes
-- Selected slot indicator size
+**Important**: When changing the hotbar size, make sure to update:
+1. All hotbar element sizes in the file (hotbar_renderer_size, gui_hotbar_grid_item, etc.)
+2. The `exp_progress_bar_and_hotbar` container height: Calculate as `5 (XP bar) + 16 (offset) + hotbar_height + 5 (padding)`
+   - For 50% larger (33px hotbar): `42` pixels
+   - For 100% larger (44px hotbar): `53` pixels
+   - For 25% larger (27.5px hotbar): `36.5` pixels
 
 ## Technical Details
 

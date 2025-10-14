@@ -7,7 +7,9 @@ Dieses Ressourcenpaket macht die Hotbar in Minecraft Bedrock Edition größer f�
 - **Größere Hotbar-Slots**: Die Hotbar-Slots werden von 20x22 Pixel auf 30x33 Pixel vergrößert (50% größer)
 - **Größere Item-Icons**: Item-Icons werden von 16x16 auf 24x24 Pixel skaliert
 - **Größerer ausgewählter Slot-Indikator**: Der Rahmen des ausgewählten Slots wird von 24x24 auf 36x36 Pixel vergrößert
+- **Richtige Container-Größe**: Der exp_progress_bar_and_hotbar Container wird auf 42 Pixel Höhe angepasst für die größere Hotbar
 - **Alle Elemente proportional skaliert**: Enthält Kappen, Buttons und andere UI-Elemente
+- **Classic UI Kompatibel**: Behebt Ausrichtungs- und Zentrierungsprobleme mit der Classic UI
 
 ## Installation
 
@@ -38,13 +40,12 @@ Du kannst diese Werte auf jede beliebige Größe ändern. Zum Beispiel:
 - **100% größer**: `[ 40, 44 ]`
 - **25% größer**: `[ 25, 27.5 ]`
 
-Stelle sicher, dass du alle Instanzen in der Datei aktualisierst für konsistente Skalierung:
-- `hotbar_renderer_size`
-- `gui_hotbar_grid_item` Größe
-- `hotbar_slot_image_size`
-- `hotbar_panel` Größe
-- Item-Icon-Größen
-- Größe des ausgewählten Slot-Indikators
+**Wichtig**: Beim Ändern der Hotbar-Größe musst du aktualisieren:
+1. Alle Hotbar-Element-Größen in der Datei (hotbar_renderer_size, gui_hotbar_grid_item, usw.)
+2. Die Höhe des `exp_progress_bar_and_hotbar` Containers: Berechne als `5 (XP-Leiste) + 16 (Offset) + Hotbar_Höhe + 5 (Padding)`
+   - Für 50% größer (33px Hotbar): `42` Pixel
+   - Für 100% größer (44px Hotbar): `53` Pixel
+   - Für 25% größer (27.5px Hotbar): `36.5` Pixel
 
 ## Technische Details
 
