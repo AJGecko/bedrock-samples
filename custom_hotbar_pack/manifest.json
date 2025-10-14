@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Custom Hotbar Size - Vergrößert die Hotbar oder ermöglicht die Anpassung der Größe",
+        "name": "Custom Hotbar Size",
+        "uuid": "4b84ef0b-9a8f-40fb-b07a-82a7fa8a13a5",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 21, 0]
+    },
+    "modules": [
+        {
+            "description": "Custom Hotbar Size Resource Pack",
+            "type": "resources",
+            "uuid": "d6d2daaa-2b90-42c6-ac72-17a16a533ad5",
+            "version": [1, 0, 0]
+        }
+    ]
+}
