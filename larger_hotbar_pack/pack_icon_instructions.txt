@@ -1,0 +1,30 @@
+# Pack Icon Placeholder
+
+This file serves as a placeholder for the pack_icon.png file.
+
+To add a proper icon:
+1. Create or obtain a 256x256 PNG image
+2. Name it `pack_icon.png`
+3. Place it in the root directory of this resource pack (same folder as manifest.json)
+
+The icon will be displayed in the Minecraft resource pack selection menu.
+
+## Suggested Icon Design
+
+The icon should visually represent a larger hotbar. Consider:
+- A Minecraft hotbar with enlarged slots
+- A magnifying glass over a hotbar
+- The text "BIG HOTBAR" or "XL"
+- Minecraft-style pixelated design
+
+## Creating an Icon
+
+You can create an icon using:
+- Image editing software (Photoshop, GIMP, Paint.NET)
+- Online pixel art tools (Piskel, Pixilart)
+- Minecraft texture creation tools
+
+Make sure the final file is:
+- PNG format
+- 256x256 pixels
+- Named exactly: `pack_icon.png`
