@@ -1,0 +1,132 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                   MINECRAFT HOTBAR RESOURCE PACK                          ║
+║                        Installation Visuell                               ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ SCHRITT 1: Ordner finden                                                │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Windows:
+    [Windows + R] → %localappdata%\...\resource_packs\
+                         ↓
+    ┌─────────────────────────────────────┐
+    │  resource_packs/                    │
+    │  ├── existing_pack1/                │
+    │  ├── existing_pack2/                │
+    │  └── (hier kopieren!)               │
+    └─────────────────────────────────────┘
+
+Android:
+    /storage/emulated/0/games/com.mojang/resource_packs/
+                         ↓
+    ┌─────────────────────────────────────┐
+    │  resource_packs/                    │
+    │  └── (hier kopieren!)               │
+    └─────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ SCHRITT 2: Ordner kopieren                                              │
+└─────────────────────────────────────────────────────────────────────────┘
+
+    Repository                          Minecraft Ordner
+    ┌───────────────────┐              ┌───────────────────┐
+    │ larger_hotbar_    │              │ resource_packs/   │
+    │ pack/             │   KOPIERE    │                   │
+    │ ├── manifest.json │─────────────→│ larger_hotbar_    │
+    │ ├── ui/           │   KOMPLETTEN │ pack/             │
+    │ └── README*.md    │   ORDNER!    │ ├── manifest.json │
+    └───────────────────┘              │ ├── ui/           │
+                                       │ └── README*.md    │
+                                       └───────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ SCHRITT 3: In Minecraft aktivieren                                      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+    1. Minecraft öffnen
+       ┌────────────────────────────┐
+       │ ⚙ EINSTELLUNGEN            │
+       └────────────────────────────┘
+              ↓
+    2. Globale Ressourcen
+       ┌────────────────────────────┐
+       │ Verfügbare Pakete:         │
+       │ ├─ Vanilla                 │
+       │ ├─ Larger Hotbar Pack ←── │ 
+       └────────────────────────────┘
+              ↓
+    3. Aktivieren (+ Button)
+       ┌────────────────────────────┐
+       │ Aktive Pakete:             │
+       │ ├─ Larger Hotbar Pack ✓    │
+       └────────────────────────────┘
+              ↓
+    4. Anwenden & Spielen!
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ ERGEBNIS: Größere Hotbar! 🎉                                            │
+└─────────────────────────────────────────────────────────────────────────┘
+
+    VORHER (Standard):          NACHHER (50% größer):
+    ┌──┬──┬──┬──┬──┐          ┌────┬────┬────┬────┬────┐
+    │  │  │  │  │  │          │    │    │    │    │    │
+    │  │  │  │  │  │          │    │    │    │    │    │
+    └──┴──┴──┴──┴──┘          └────┴────┴────┴────┴────┘
+    20x22 Pixel               30x33 Pixel
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                         ANPASSUNG (Optional)                              ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Bearbeite: larger_hotbar_pack/ui/hud_screen.json
+
+Suche nach:                    Ändere zu:
+"size": [ 30, 33 ]      →     "size": [ 40, 44 ]  (100% größer)
+"size": [ 24, 24 ]      →     "size": [ 32, 32 ]  (Icons größer)
+"size": [ 36, 36 ]      →     "size": [ 48, 48 ]  (Rahmen größer)
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                        ALTERNATIVE: .mcpack                               ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+    1. Erstelle ZIP von allen Dateien im Ordner
+       ┌───────────────────────────────────┐
+       │ larger_hotbar_pack/               │
+       │ ├── manifest.json                 │
+       │ ├── ui/hud_screen.json            │
+       │ └── ...                            │
+       └───────────────────────────────────┘
+                    ↓ ZIP
+       ┌───────────────────────────────────┐
+       │ larger_hotbar_pack.zip            │
+       └───────────────────────────────────┘
+                    ↓ Umbenennen
+       ┌───────────────────────────────────┐
+       │ larger_hotbar_pack.mcpack         │
+       └───────────────────────────────────┘
+                    ↓ Doppelklick
+       [Automatisch in Minecraft importiert]
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                    DATEIEN - WAS IST WICHTIG?                             ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+    ERFORDERLICH (Minimale Installation):
+    ✅ manifest.json           ← MUSS dabei sein!
+    ✅ ui/hud_screen.json      ← MUSS dabei sein!
+
+    OPTIONAL (Dokumentation):
+    📄 README.md               ← Hilft dir
+    📄 README_DE.md            ← Hilft dir  
+    📄 QUICK_START_DE.md       ← Hilft dir
+    📄 FILE_LIST.md            ← Info
+    📄 FOLDER_STRUCTURE.md     ← Info
+    📄 pack_icon_instructions  ← Wenn du Icon willst
+
+    Nur die ✅ Dateien sind technisch nötig!
+    Alle 📄 Dateien sind nur Dokumentation.
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                          FERTIG! 🎮                                       ║
+╚═══════════════════════════════════════════════════════════════════════════╝
