@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Makes the hotbar larger and customizable",
+    "name": "Larger Hotbar Resource Pack",
+    "uuid": "6423d417-3bfa-4f02-9261-a4503fa8049d",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "Larger Hotbar UI modifications",
+      "type": "resources",
+      "uuid": "5b355b56-eee8-46f9-808b-3bb398b599d9",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

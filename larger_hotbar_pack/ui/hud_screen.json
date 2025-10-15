@@ -1,0 +1,1077 @@
+{
+  "namespace": "hud",
+
+  //---------------------------------------------------------------------------
+  // Larger Hotbar Configuration  
+  // This resource pack makes the hotbar larger by modifying the size variables
+  // Includes necessary button definitions for touch controls
+  //---------------------------------------------------------------------------
+
+  // Required button and image definitions for touch controls
+  "elipses_image": {
+    "type": "image",
+    "$elipses_image_size|default": [ 14, 4 ],
+    "texture": "textures/ui/elipses",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": "$elipses_image_size",
+    "offset": [ 0.0, 0.5 ],
+    "layer": 30,
+    "alpha": 0.65
+  },
+
+  "default_borderless_button_layout": {
+    "type": "image",
+    "texture": "textures/ui/button_borderless_light",
+    "alpha": 0.45
+  },
+
+  "hover_borderless_button_layout@default_borderless_button_layout": {
+    "texture": "textures/ui/button_borderless_lighthover"
+  },
+
+  "pressed_borderless_button_layout@default_borderless_button_layout": {
+    "texture": "textures/ui/button_borderless_lightpressed"
+  },
+
+  "borderless_button@common.button": {
+    "controls": [
+      {
+        "default@default_borderless_button_layout": {}
+      },
+      {
+        "hover@hover_borderless_button_layout": {}
+      },
+      {
+        "pressed@pressed_borderless_button_layout": {}
+      },
+      {
+        "elipses@elipses_image": {}
+      }
+    ]
+  },
+
+  // Button prototype for hotbar slots - needed for touch controls
+  "gui_hotbar_slot_button_prototype": {
+    "type": "button",
+
+    "$hotbar_select|default": "button.hotbar_select",
+
+    "$focus_id|default": "",
+    "$focus_override_down|default": "",
+    "$focus_override_up|default": "",
+    "$focus_override_left|default": "",
+    "$focus_override_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_override_down",
+    "focus_change_up": "$focus_override_up",
+    "focus_change_left": "$focus_override_left",
+    "focus_change_right": "$focus_override_right",
+    "focus_enabled": true,
+    "tts_ignore_count": true,
+
+    "layer": 2,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$hotbar_select",
+        "mapping_type": "pressed",
+        "button_up_right_of_first_refusal": true
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.hotbar_ok",
+        "mapping_type": "focused"
+      },
+      {
+        "to_button_id": "button.slot_pressed",
+        "mapping_type": "pressed"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  // Override hotbar renderer size
+  "hotbar_renderer": {
+    "type": "custom",
+    "$hotbar_renderer_size|default": [ 30, 33 ],
+    "renderer": "hotbar_renderer",
+    "size": "$hotbar_renderer_size",
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      },
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "hotbar_slot_image@hotbar_slot_image": {
+          "$hotbar_slot_image_size": "$hotbar_renderer_size"
+        }
+      }
+    ]
+  },
+
+  // Override cooldown renderer size
+  "cooldown_renderer": {
+    "type": "custom",
+    "renderer": "hotbar_cooldown_renderer",
+    "size": [ 30, 33 ],
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  // Override hotbar slot image size
+  "hotbar_slot_image": {
+    "$hotbar_slot_image_size|default": [ 30, 33 ],
+    "type": "image",
+    "offset": [ 0, 0 ],
+    "size": "$hotbar_slot_image_size",
+    "layer": 1,
+    "alpha": 1
+  },
+
+  // Override selected slot image size
+  "hotbar_slot_selected_image": {
+    "type": "image",
+    "texture": "textures/ui/selected_hotbar_slot",
+    "size": [ 36, 36 ],
+    "layer": 8,
+    "bindings": [
+      {
+        "binding_name": "#slot_selected",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$hotbar_collection_name"
+      }
+    ]
+  },
+
+  // Override start cap image size
+  "start_cap_image": {
+    "type": "image",
+    "$cap_image_size|default": [ 1, 33 ],
+    "texture": "textures/ui/hotbar_start_cap",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": "$cap_image_size",
+    "layer": 4,
+    "alpha": 0.65,
+    "visible": true
+  },
+
+  "end_cap_image@start_cap_image": {
+    "texture": "textures/ui/hotbar_end_cap"
+  },
+
+  // Override hotbar cap sizes
+  "hotbar_start_cap": {
+    "type": "panel",
+    "$cap_size|default": [ 1, 33 ],
+    "size": "$cap_size",
+    "controls": [
+      {
+        "start_cap_image@start_cap_image": {
+          "$cap_image_size": "$cap_size"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "hotbar_end_cap@hotbar_start_cap": {
+    "$cap_size|default": [ 1, 33 ],
+    "controls": [
+      {
+        "end_cap_image@end_cap_image": {
+          "$cap_image_size": "$cap_size"
+        }
+      }
+    ]
+  },
+
+  // Override hotbar panel height
+  "hotbar_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%c", 33 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      { "hotbar_start_cap@hud.hotbar_start_cap": {} },
+      { "hotbar_elipses_panel_left@hud.hotbar_elipses_panel_left_content": {} },
+      { "hotbar_grid@hud.hotbar_grid": {} },
+      { "hotbar_elipses_panel_right@hud.hotbar_elipses_panel_right_content": {} },
+      { "hotbar_end_cap@hud.hotbar_end_cap": {} }
+    ]
+  },
+
+  // Override hotbar grid item size
+  "gui_hotbar_grid_item": {
+    "type": "panel",
+    "layer": 1,
+    "size": [ 30, 33 ],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$stack_count_required|default": true,
+    "$durability_bar_required|default": true,
+    "$storage_bar_required|default": true,
+    "controls": [
+      { "hotbar_slot_selected_image@hotbar_slot_selected_image": {} },
+      { "hotbar_renderer@hotbar_renderer": {} },
+      {
+        "hotbar_parent": {
+          "type": "panel",
+          "size": [ 27, 27 ],
+          "controls": [
+            {
+              "item_icon@hotbar_hud_item_icon": {
+                "layer": 3,
+                "size": [ 24, 24 ]
+              }
+            },
+            {
+              "item_count@common.stack_count_label": {
+                "layer": 4,
+                "$item_collection_name": "$hotbar_collection_name",
+                "$stack_count_collection_name": "$hotbar_collection_name",
+                "bindings": [
+                  {
+                    "binding_name": "#inventory_stack_count",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$stack_count_collection_name"
+                  },
+                  {
+                    "binding_name": "#stack_count_visible",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$stack_count_collection_name"
+                  }
+                ]
+              }
+            },
+            { "hotbar_hint@edu_common.hotbar_hint": {} },
+            {
+              "item_dura@item_durability": {
+                "layer": 5
+              }
+            },
+            {
+              "item_store@item_storage": {
+                "layer": 5
+              }
+            },
+            {
+              "container_item_lock_overlay@hud.container_item_lock_overlay": {
+                "layer": 6,
+                "size": [ 24, 24 ]
+              }
+            }
+          ]
+        }
+      },
+      { "cooldown_renderer@cooldown_renderer": { "layer": 10 } },
+      { "hotbar_slot_button@gui_hotbar_slot_button_prototype": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  // Override hotbar elipses panel sizes
+  "hotbar_elipses_panel_right_content": {
+    "type": "stack_panel",
+    "size": [ 30, 33 ],
+    "orientation": "horizontal",
+    "controls": [
+      { "elipses_content@hud.hotbar_elipses_panel_right_art": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_elipses_right_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "hotbar_elipses_panel_right_art": {
+    "type": "panel",
+    "$hotbar_elipses_panel_right_art_size|default": [ 30, 33 ],
+    "size": "$hotbar_elipses_panel_right_art_size",
+    "layer": 4,
+    "controls": [
+      {
+        "slot@hud.hotbar_slot_image": {
+          "$hotbar_slot_image_size": "$hotbar_elipses_panel_right_art_size",
+          "layer": 2,
+          "texture": "textures/ui/hotbar_8"
+        }
+      },
+      { "button@hud.hotbar_elipses_button": {} }
+    ]
+  },
+
+  "hotbar_elipses_panel_left_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ 30, 33 ],
+    "controls": [
+      { "button@hud.hotbar_elipses_panel_left_art": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_elipses_left_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "hotbar_elipses_panel_left_art": {
+    "type": "panel",
+    "$hotbar_elipses_panel_left_art_size|default": [ 30, 33 ],
+    "size": "$hotbar_elipses_panel_left_art_size",
+    "layer": 4,
+    "controls": [
+      {
+        "slot@hud.hotbar_slot_image": {
+          "layer": 2,
+          "$hotbar_slot_image_size": "$hotbar_elipses_panel_left_art_size",
+          "texture": "textures/ui/hotbar_0"
+        }
+      },
+      { "button@hud.hotbar_elipses_button": {} }
+    ]
+  },
+
+  // Override elipses button size
+  "hotbar_elipses_button@borderless_button": {
+    "$pressed_button_name": "button.hotbar_inventory_button",
+    "$hotbar_elipses_button_size|default": [ 24, 24 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": "$hotbar_elipses_button_size",
+    "layer": 3,
+    "focus_enabled": false,
+    "default_focus_precedence": 10,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#inventory_touch_button",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  // Override exp container height to accommodate larger hotbar
+  "exp_progress_bar_and_hotbar": {
+    "type": "panel",
+    "size": [ "100%c", 42 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": "$xp_control_offset",
+    "controls": [
+      {
+        "resizing_xp_bar_with_hotbar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "empty_progress_bar@empty_progress_bar": {
+                "size": [ "100%c", 5 ],
+                "layer": 1,
+                "controls": [
+                  {
+                    "full_progress_bar@full_progress_bar": {
+                      "size": [ "100%c + 10px", 5 ],
+                      "layer": 2,
+                      "controls": [
+                        {
+                          "progress_bar_nub@progress_bar_nub": {
+                            "size": [ "100%c - 10px", 5 ],
+                            "max_size": [ 190, 5 ],
+                            "layer": 3,
+                            "controls": [
+                              {
+                                "horse_jump_rend@horse_jump_renderer": {
+                                  "anchor_from": "bottom_middle",
+                                  "anchor_to": "bottom_middle",
+                                  "size": [ "100%c", 5 ],
+                                  "layer": 7,
+                                  "controls": [
+                                    {
+                                      "dash_rend@dash_renderer": {
+                                        "anchor_from": "bottom_middle",
+                                        "anchor_to": "bottom_middle",
+                                        "size": [ "100%c", 5 ],
+                                        "layer": 7,
+                                        "controls": [
+                                          {
+                                            "hotbar@hotbar_chooser": {
+                                              "offset": [ 4, 16 ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "progress_text_label@progress_text_label": {
+                "offset": [ 0, 0 ],
+                "layer": 7
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_with_xp_bar",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "resizing_hotbar_no_xp_bar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "horse_jump_rend@horse_jump_renderer": {
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "size": [ "100%c", 5 ],
+                "layer": 7,
+                "bindings": [
+                  {
+                    "binding_name": "#hotbar_no_xp_bar",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "dash_rend@dash_renderer": {
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle",
+                      "size": [ "100%c", 5 ],
+                      "layer": 7,
+                      "controls": [
+                        {
+                          "hotbar@hotbar_chooser": {
+                            "offset": [ 4, 16 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "resizing_hotbar_locator_bar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "size_owner": {
+                "type": "panel",
+                "size": [ "100%c", "100%c" ],
+                "controls": [
+                  {
+                    "hotbar@hotbar_chooser": {
+                      "offset": [ 4, 16 ],
+                      "bindings": [
+                        {
+                          "binding_name": "(not #is_spectator_mode)",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "size_without_hotbar": {
+                      "type": "panel",
+                      "size": [ 180, 5 ],
+                      "bindings": [
+                        {
+                          "binding_name": "#is_spectator_mode",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "locator_bar@locator_bar": {
+                "size": [ "100%c", 5 ],
+                "layer": 1
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_with_locator_bar",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+    "type": "custom",
+    "$hotbar_renderer_size|default": [ 30, 33 ],
+    "renderer": "hotbar_renderer",
+    "size": "$hotbar_renderer_size",
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      },
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "hotbar_slot_image@hotbar_slot_image": {
+          "$hotbar_slot_image_size": "$hotbar_renderer_size"
+        }
+      }
+    ]
+  },
+
+  // Override cooldown renderer with larger size
+  "cooldown_renderer": {
+    "type": "custom",
+    "renderer": "hotbar_cooldown_renderer",
+    "size": [ 30, 33 ],
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  // Override hotbar slot image with larger size
+  "hotbar_slot_image": {
+    "$hotbar_slot_image_size|default": [ 30, 33 ],
+    "type": "image",
+    "offset": [ 0, 0 ],
+    "size": "$hotbar_slot_image_size",
+    "layer": 1,
+    "alpha": 1
+  },
+
+  // Override selected slot image with larger size
+  "hotbar_slot_selected_image": {
+    "type": "image",
+    "texture": "textures/ui/selected_hotbar_slot",
+    "size": [ 36, 36 ],
+    "layer": 8,
+    "bindings": [
+      {
+        "binding_name": "#slot_selected",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$hotbar_collection_name"
+      }
+    ]
+  },
+
+  // Override start and end cap images with larger size
+  "start_cap_image": {
+    "type": "image",
+    "$cap_image_size|default": [ 1, 33 ],
+    "texture": "textures/ui/hotbar_start_cap",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": "$cap_image_size",
+    "layer": 4,
+    "alpha": 0.65,
+    "visible": true
+  },
+
+  "end_cap_image@start_cap_image": {
+    "texture": "textures/ui/hotbar_end_cap"
+  },
+
+  "hotbar_start_cap": {
+    "type": "panel",
+    "$cap_size|default": [ 1, 33 ],
+    "size": "$cap_size",
+    "controls": [
+      {
+        "start_cap_image@start_cap_image": {
+          "$cap_image_size": "$cap_size"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "hotbar_end_cap@hotbar_start_cap": {
+    "$cap_size|default": [ 1, 33 ],
+    "controls": [
+      {
+        "end_cap_image@end_cap_image": {
+          "$cap_image_size": "$cap_size"
+        }
+      }
+    ]
+  },
+
+  // Button prototype for hotbar slots - needed for touch controls
+  "gui_hotbar_slot_button_prototype": {
+    "type": "button",
+
+    "$hotbar_select|default": "button.hotbar_select",
+
+    "$focus_id|default": "",
+    "$focus_override_down|default": "",
+    "$focus_override_up|default": "",
+    "$focus_override_left|default": "",
+    "$focus_override_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_override_down",
+    "focus_change_up": "$focus_override_up",
+    "focus_change_left": "$focus_override_left",
+    "focus_change_right": "$focus_override_right",
+    "focus_enabled": true,
+    "tts_ignore_count": true,
+
+    "layer": 2,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$hotbar_select",
+        "mapping_type": "pressed",
+        "button_up_right_of_first_refusal": true
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.hotbar_ok",
+        "mapping_type": "focused"
+      },
+      {
+        "to_button_id": "button.slot_pressed",
+        "mapping_type": "pressed"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  // Override hotbar panel with larger size
+  "hotbar_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%c", 33 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      { "hotbar_start_cap@hud.hotbar_start_cap": {} },
+      { "hotbar_elipses_panel_left@hud.hotbar_elipses_panel_left_content": {} },
+      { "hotbar_grid@hud.hotbar_grid": {} },
+      { "hotbar_elipses_panel_right@hud.hotbar_elipses_panel_right_content": {} },
+      { "hotbar_end_cap@hud.hotbar_end_cap": {} }
+    ]
+  },
+
+  // Override hotbar grid item with larger size
+  "gui_hotbar_grid_item": {
+    "type": "panel",
+    "layer": 1,
+    "size": [ 30, 33 ],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$stack_count_required|default": true,
+    "$durability_bar_required|default": true,
+    "$storage_bar_required|default": true,
+    "controls": [
+      { "hotbar_slot_selected_image@hotbar_slot_selected_image": {} },
+      { "hotbar_renderer@hotbar_renderer": {} },
+      {
+        "hotbar_parent": {
+          "type": "panel",
+          "size": [ 27, 27 ],
+          "controls": [
+            {
+              "item_icon@hotbar_hud_item_icon": {
+                "layer": 3,
+                "size": [ 24, 24 ]
+              }
+            },
+            {
+              "item_count@common.stack_count_label": {
+                "layer": 4,
+                "$item_collection_name": "$hotbar_collection_name",
+                "$stack_count_collection_name": "$hotbar_collection_name",
+                "bindings": [
+                  {
+                    "binding_name": "#inventory_stack_count",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$stack_count_collection_name"
+                  },
+                  {
+                    "binding_name": "#stack_count_visible",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$stack_count_collection_name"
+                  }
+                ]
+              }
+            },
+            { "hotbar_hint@edu_common.hotbar_hint": {} },
+            {
+              "item_dura@item_durability": {
+                "layer": 5
+              }
+            },
+            {
+              "item_store@item_storage": {
+                "layer": 5
+              }
+            },
+            {
+              "container_item_lock_overlay@hud.container_item_lock_overlay": {
+                "layer": 6,
+                "size": [ 24, 24 ]
+              }
+            }
+          ]
+        }
+      },
+      { "cooldown_renderer@cooldown_renderer": { "layer": 10 } },
+      { "hotbar_slot_button@gui_hotbar_slot_button_prototype": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  // Override hotbar elipses panels with larger size
+  "hotbar_elipses_panel_right_content": {
+    "type": "stack_panel",
+    "size": [ 30, 33 ],
+    "orientation": "horizontal",
+    "controls": [
+      { "elipses_content@hud.hotbar_elipses_panel_right_art": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_elipses_right_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "hotbar_elipses_panel_right_art": {
+    "type": "panel",
+    "$hotbar_elipses_panel_right_art_size|default": [ 30, 33 ],
+    "size": "$hotbar_elipses_panel_right_art_size",
+    "layer": 4,
+    "controls": [
+      {
+        "slot@hud.hotbar_slot_image": {
+          "$hotbar_slot_image_size": "$hotbar_elipses_panel_right_art_size",
+          "layer": 2,
+          "texture": "textures/ui/hotbar_8"
+        }
+      },
+      { "button@hud.hotbar_elipses_button": {} }
+    ]
+  },
+
+  "hotbar_elipses_panel_left_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ 30, 33 ],
+    "controls": [
+      { "button@hud.hotbar_elipses_panel_left_art": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_elipses_left_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "hotbar_elipses_panel_left_art": {
+    "type": "panel",
+    "$hotbar_elipses_panel_left_art_size|default": [ 30, 33 ],
+    "size": "$hotbar_elipses_panel_left_art_size",
+    "layer": 4,
+    "controls": [
+      {
+        "slot@hud.hotbar_slot_image": {
+          "layer": 2,
+          "$hotbar_slot_image_size": "$hotbar_elipses_panel_left_art_size",
+          "texture": "textures/ui/hotbar_0"
+        }
+      },
+      { "button@hud.hotbar_elipses_button": {} }
+    ]
+  },
+
+  "hotbar_elipses_button@borderless_button": {
+    "$pressed_button_name": "button.hotbar_inventory_button",
+    "$hotbar_elipses_button_size|default": [ 24, 24 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": "$hotbar_elipses_button_size",
+    "layer": 3,
+    "focus_enabled": false,
+    "default_focus_precedence": 10,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#inventory_touch_button",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  // Override exp_progress_bar_and_hotbar to accommodate larger hotbar
+  "exp_progress_bar_and_hotbar": {
+    "type": "panel",
+    "size": [ "100%c", 42 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": "$xp_control_offset",
+    "controls": [
+      {
+        "resizing_xp_bar_with_hotbar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "empty_progress_bar@empty_progress_bar": {
+                "size": [ "100%c", 5 ],
+                "layer": 1,
+                "controls": [
+                  {
+                    "full_progress_bar@full_progress_bar": {
+                      "size": [ "100%c + 10px", 5 ],
+                      "layer": 2,
+                      "controls": [
+                        {
+                          "progress_bar_nub@progress_bar_nub": {
+                            "size": [ "100%c - 10px", 5 ],
+                            "max_size": [ 190, 5 ],
+                            "layer": 3,
+                            "controls": [
+                              {
+                                "horse_jump_rend@horse_jump_renderer": {
+                                  "anchor_from": "bottom_middle",
+                                  "anchor_to": "bottom_middle",
+                                  "size": [ "100%c", 5 ],
+                                  "layer": 7,
+                                  "controls": [
+                                    {
+                                      "dash_rend@dash_renderer": {
+                                        "anchor_from": "bottom_middle",
+                                        "anchor_to": "bottom_middle",
+                                        "size": [ "100%c", 5 ],
+                                        "layer": 7,
+                                        "controls": [
+                                          {
+                                            "hotbar@hotbar_chooser": {
+                                              "offset": [ 4, 16 ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "progress_text_label@progress_text_label": {
+                "offset": [ 0, 0 ],
+                "layer": 7
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_with_xp_bar",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "resizing_hotbar_no_xp_bar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "horse_jump_rend@horse_jump_renderer": {
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "size": [ "100%c", 5 ],
+                "layer": 7,
+                "bindings": [
+                  {
+                    "binding_name": "#hotbar_no_xp_bar",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "dash_rend@dash_renderer": {
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle",
+                      "size": [ "100%c", 5 ],
+                      "layer": 7,
+                      "controls": [
+                        {
+                          "hotbar@hotbar_chooser": {
+                            "offset": [ 4, 16 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "resizing_hotbar_locator_bar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "size_owner": {
+                "type": "panel",
+                "size": [ "100%c", "100%c" ],
+                "controls": [
+                  {
+                    "hotbar@hotbar_chooser": {
+                      "offset": [ 4, 16 ],
+                      "bindings": [
+                        {
+                          "binding_name": "(not #is_spectator_mode)",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "size_without_hotbar": {
+                      "type": "panel",
+                      "size": [ 180, 5 ],
+                      "bindings": [
+                        {
+                          "binding_name": "#is_spectator_mode",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "locator_bar@locator_bar": {
+                "size": [ "100%c", 5 ],
+                "layer": 1
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_with_locator_bar",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
