@@ -3,8 +3,98 @@
 
   //---------------------------------------------------------------------------
   // Larger Hotbar Configuration  
-  // Minimal override approach - only changes necessary size properties
+  // This resource pack makes the hotbar larger by modifying the size variables
+  // Includes necessary button definitions for touch controls
   //---------------------------------------------------------------------------
+
+  // Required button and image definitions for touch controls
+  "elipses_image": {
+    "type": "image",
+    "$elipses_image_size|default": [ 14, 4 ],
+    "texture": "textures/ui/elipses",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": "$elipses_image_size",
+    "offset": [ 0.0, 0.5 ],
+    "layer": 30,
+    "alpha": 0.65
+  },
+
+  "default_borderless_button_layout": {
+    "type": "image",
+    "texture": "textures/ui/button_borderless_light",
+    "alpha": 0.45
+  },
+
+  "hover_borderless_button_layout@default_borderless_button_layout": {
+    "texture": "textures/ui/button_borderless_lighthover"
+  },
+
+  "pressed_borderless_button_layout@default_borderless_button_layout": {
+    "texture": "textures/ui/button_borderless_lightpressed"
+  },
+
+  "borderless_button@common.button": {
+    "controls": [
+      {
+        "default@default_borderless_button_layout": {}
+      },
+      {
+        "hover@hover_borderless_button_layout": {}
+      },
+      {
+        "pressed@pressed_borderless_button_layout": {}
+      },
+      {
+        "elipses@elipses_image": {}
+      }
+    ]
+  },
+
+  // Button prototype for hotbar slots - needed for touch controls
+  "gui_hotbar_slot_button_prototype": {
+    "type": "button",
+
+    "$hotbar_select|default": "button.hotbar_select",
+
+    "$focus_id|default": "",
+    "$focus_override_down|default": "",
+    "$focus_override_up|default": "",
+    "$focus_override_left|default": "",
+    "$focus_override_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_override_down",
+    "focus_change_up": "$focus_override_up",
+    "focus_change_left": "$focus_override_left",
+    "focus_change_right": "$focus_override_right",
+    "focus_enabled": true,
+    "tts_ignore_count": true,
+
+    "layer": 2,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$hotbar_select",
+        "mapping_type": "pressed",
+        "button_up_right_of_first_refusal": true
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.hotbar_ok",
+        "mapping_type": "focused"
+      },
+      {
+        "to_button_id": "button.slot_pressed",
+        "mapping_type": "pressed"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
 
   // Override hotbar renderer size
   "hotbar_renderer": {
