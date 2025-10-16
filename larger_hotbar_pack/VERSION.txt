@@ -1,9 +1,19 @@
 Größere Hotbar Pack für Minecraft Bedrock Edition
-Version: 1.0.0
+Version: 1.0.1
 Release Date: 2025-10-16
 
 CHANGELOG:
 ----------
+v1.0.1 (2025-10-16)
+- Fehler behoben: Hotbar-Slots überlappen sich nicht mehr
+- Fehler behoben: XP-Bar wird jetzt korrekt angezeigt
+- Hotbar-Slot-Image hinzugefügt und skaliert (30x33px)
+- Selected-Slot-Image hinzugefügt und skaliert (36x36px)
+- gui_hotbar_grid_item_pocket korrekt implementiert
+- Elipsen-Buttons vergrößert für bessere Sichtbarkeit
+- Item-Icons auf 100% vergrößert
+- Container-Lock-Overlay vergrößert (24x24px)
+
 v1.0.0 (2025-10-16)
 - Erste Veröffentlichung / Initial release
 - 50% Vergrößerung aller HUD-Elemente

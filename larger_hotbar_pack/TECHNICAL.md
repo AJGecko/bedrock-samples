@@ -84,37 +84,53 @@ Die folgenden Elemente wurden modifiziert / The following elements were modified
    - Größe: `[ 30, 33 ]` (war `[ 20, 22 ]`)
    - Beschreibung: Rendert die einzelnen Hotbar-Slots
 
-2. **cooldown_renderer**
+2. **hotbar_slot_image**
+   - Größe: `[ 30, 33 ]` (war `[ 20, 22 ]`)
+   - Beschreibung: Das Bild für die Hotbar-Slots
+
+3. **hotbar_slot_selected_image**
+   - Größe: `[ 36, 36 ]` (war `[ 24, 24 ]`)
+   - Beschreibung: Das Bild für den ausgewählten Hotbar-Slot
+
+4. **cooldown_renderer**
    - Größe: `[ 30, 33 ]` (war `[ 20, 22 ]`)
    - Beschreibung: Rendert die Abklingzeit-Anzeige für Items
 
-3. **heart_renderer**
+5. **gui_hotbar_grid_item_pocket**
+   - Hotbar-Renderer-Größe: `[ "130%", "130%" ]` (war `[ "105%", "105%" ]`)
+   - Selected-Image-Größe: `[ "150%", "150%" ]` (war `[ "120%", "120%" ]`)
+   - Item-Icon-Größe: `[ "100%", "100%" ]` (war `[ "80%", "80%" ]`)
+   - Container-Lock-Overlay: `[ 24, 24 ]` (war `[ 16, 16 ]`)
+   - Beschreibung: Die Hotbar-Grid-Items für Pocket Edition
+
+6. **heart_renderer**
    - Größe: `[ 1.5, 1.5 ]` (war `[ 1, 1 ]`)
    - Beschreibung: Rendert die Lebensherzen
 
-4. **horse_heart_renderer**
+7. **horse_heart_renderer**
    - Größe: `[ 1.5, 1.5 ]` (war `[ 1, 1 ]`)
    - Beschreibung: Rendert die Pferde-Lebensherzen
 
-5. **armor_renderer**
+8. **armor_renderer**
    - Größe: `[ 1.5, 1.5 ]` (war `[ 1, 1 ]`)
    - Beschreibung: Rendert die Rüstungspunkte
 
-6. **hunger_renderer**
+9. **hunger_renderer**
    - Größe: `[ 1.5, 1.5 ]` (war `[ 1, 1 ]`)
    - Beschreibung: Rendert die Hunger-Punkte
 
-7. **bubble_renderer**
+10. **bubble_renderer**
    - Größe: `[ 1.5, 1.5 ]` (war `[ 1, 1 ]`)
    - Beschreibung: Rendert die Luft-Blasen unter Wasser
 
-8. **hotbar_panel_pocket**
+11. **hotbar_panel_pocket**
    - Panel-Höhe: `60` (war `40`)
    - Start-Cap-Größe: `[ 1.5, "100%" ]` (war `[ 1, "100%" ]`)
    - End-Cap-Größe: `[ 1.5, "100%" ]` (war `[ 1, "100%" ]`)
+   - Elipsen-Panel-Größen: `[ "135%", "135%" ]` (war `[ "105%", "105%" ]`)
    - Beschreibung: Das gesamte Hotbar-Panel für Pocket Edition
 
-9. **exp_progress_bar_and_hotbar_pocket**
+12. **exp_progress_bar_and_hotbar_pocket**
    - XP-Bar-Höhe: `7.5` (war `5`)
    - Locator-Bar-Höhe: `7.5` (war `5`)
    - Horse-Jump-Bar-Höhe: `7.5` (war `5`)
