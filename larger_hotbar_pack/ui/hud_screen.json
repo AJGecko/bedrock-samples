@@ -1,0 +1,421 @@
+{
+  "namespace": "hud",
+
+  //---------------------------------------------------------------------------
+  // Scaled Hotbar Renderer for Larger Hotbar
+  //---------------------------------------------------------------------------
+
+  "hotbar_renderer": {
+    "type": "custom",
+    "$hotbar_renderer_size|default": [ 30, 33 ],
+    "renderer": "hotbar_renderer",
+    "size": "$hotbar_renderer_size",
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      },
+      {
+        "binding_name": "#hotbar_visible",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "hotbar_slot_image@hotbar_slot_image": {
+          "$hotbar_slot_image_size": "$hotbar_renderer_size"
+        }
+      }
+    ]
+  },
+
+  "cooldown_renderer": {
+    "type": "custom",
+    "renderer": "hotbar_cooldown_renderer",
+    "size": [ 30, 33 ],
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_collection_name": "$hotbar_collection_name",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Scaled Health/Armor/Hunger Renderers
+  //---------------------------------------------------------------------------
+
+  "heart_renderer": {
+    "type": "custom",
+    "size": [ 1.5, 1.5 ],
+    "renderer": "heart_renderer",
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_name": "#show_survival_ui",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "horse_heart_renderer": {
+    "type": "custom",
+    "size": [ 1.5, 1.5 ],
+    "renderer": "horse_heart_renderer",
+    "layer": 1
+  },
+
+  "armor_renderer": {
+    "type": "custom",
+    "size": [ 1.5, 1.5 ],
+    "renderer": "armor_renderer",
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_name": "#is_armor_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "hunger_renderer": {
+    "type": "custom",
+    "size": [ 1.5, 1.5 ],
+    "renderer": "hunger_renderer",
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_name": "#show_survival_ui",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "bubble_renderer": {
+    "type": "custom",
+    "size": [ 1.5, 1.5 ],
+    "renderer": "bubble_renderer",
+    "layer": 1
+  },
+
+  //---------------------------------------------------------------------------
+  // Scaled Hotbar Panel for Pocket Edition
+  //---------------------------------------------------------------------------
+
+  "hotbar_panel_pocket": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 60 ],
+    "offset": [ 0, 0 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "use_anchored_offset": true,
+    "property_bag": {
+      "#anchored_offset_value_x": 0.0,
+      "#anchored_offset_value_y": 0.0,
+      "#size_binding_x": 0.0,
+      "#size_binding_y": 0.0
+    },
+    "controls": [
+      {
+        "hotbar_start_cap_frame": {
+          "type": "panel",
+          "size": [ 1.5, "100%" ],
+          "controls": [
+            {
+              "hotbar_start_cap@hud.hotbar_start_cap": {
+                "offset": [ 0, "-2.5%" ],
+                "$cap_size": [ 1.5, "105%" ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hotbar_elipses_panel_left": {
+          "type": "panel",
+          "size": [ "10%", "100%" ],
+          "controls": [
+            {
+              "hotbar_elipses_panel_left@hud.hotbar_elipses_panel_left_art": {
+                "$hotbar_elipses_panel_left_art_size": [ "105%", "105%" ],
+                "$hotbar_elipses_button_size": [ "77%", "77%" ],
+                "$elipses_image_size": [ "75%", "75%" ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_elipses_left_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+      {
+        "hotbar_grid@hud.hotbar_grid": {
+          "size": [ "90%", "100%" ],
+          "grid_item_template": "hud.gui_hotbar_grid_item_pocket"
+        }
+      },
+      {
+        "hotbar_elipses_panel_right": {
+          "type": "panel",
+          "size": [ "10%", "100%" ],
+          "controls": [
+            {
+              "hotbar_elipses_panel_right@hud.hotbar_elipses_panel_right_art": {
+                "$hotbar_elipses_panel_right_art_size": [ "105%", "105%" ],
+                "$hotbar_elipses_button_size": [ "77%", "77%" ],
+                "$elipses_image_size": [ "75%", "75%" ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_elipses_right_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+      {
+        "hotbar_end_cap_frame": {
+          "type": "panel",
+          "size": [ 1.5, "100%" ],
+          "controls": [
+            {
+              "hotbar_end_cap@hud.hotbar_end_cap": {
+                "offset": [ 0, "-2.5%" ],
+                "$cap_size": [ 1.5, "105%" ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hotbar_offset_x",
+        "binding_name_override": "#anchored_offset_value_x"
+      },
+      {
+        "binding_name": "#hotbar_offset_y",
+        "binding_name_override": "#anchored_offset_value_y"
+      },
+      {
+        "binding_name": "#hotbar_size_x",
+        "binding_name_override": "#size_binding_x"
+      },
+      {
+        "binding_name": "#hotbar_size_y",
+        "binding_name_override": "#size_binding_y"
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Scaled XP Progress Bar and Hotbar for Pocket Edition
+  //---------------------------------------------------------------------------
+
+  "exp_progress_bar_and_hotbar_pocket": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      {
+        "resizing_xp_bar_with_hotbar": {
+          "type": "panel",
+          "size": [ "100%", 7.5 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "use_anchored_offset": true,
+          "property_bag": {
+            "#anchored_offset_value_y": 0.0,
+            "#size_binding_x": 0.0,
+            "#size_binding_y": 0.0
+          },
+          "controls": [
+            {
+              "empty_progress_bar@empty_progress_bar": {
+                "size": [ "100%", "100%" ],
+                "layer": 1,
+                "controls": [
+                  {
+                    "full_progress_bar@full_progress_bar": {
+                      "size": [ "100%", "100%" ],
+                      "layer": 2,
+                      "controls": [
+                        {
+                          "progress_bar_nub@progress_bar_nub": {
+                            "size": [ "99%", "100%" ],
+                            "layer": 3
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "progress_text_label@progress_text_label": {
+                "offset": [ 0, 0 ],
+                "layer": 7
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_with_xp_bar",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_name": "#exp_bar_and_text_offset_y",
+              "binding_name_override": "#anchored_offset_value_y"
+            },
+            {
+              "binding_name": "#exp_bar_size_x",
+              "binding_name_override": "#size_binding_x"
+            },
+            {
+              "binding_name": "#exp_bar_size_y",
+              "binding_name_override": "#size_binding_y"
+            }
+          ]
+        }
+      },
+      {
+        "resizing_locator_bar": {
+          "type": "panel",
+          "size": [ "100%", 7.5 ],
+          "controls": [
+            {
+              "locator_bar@locator_bar": {
+                "size": [ "100%", 7.5 ],
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "layer": 10
+              }
+            },
+            {
+              "progress_text_label@progress_text_label": {}
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#hotbar_with_locator_bar",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_name": "#exp_bar_and_text_offset_y",
+              "binding_name_override": "#anchored_offset_value_y"
+            },
+            {
+              "binding_name": "#exp_bar_size_x",
+              "binding_name_override": "#size_binding_x"
+            },
+            {
+              "binding_name": "#exp_bar_size_y",
+              "binding_name_override": "#size_binding_y"
+            }
+          ]
+        }
+      },
+      {
+        "hotbar_panel@hotbar_panel_pocket": {}
+      },
+      {
+        "item_text": {
+          "type": "panel",
+          "offset": [ 0, 0 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "use_anchored_offset": true,
+          "property_bag": {
+            "#anchored_offset_value_y": 0.0
+          },
+          "bindings": [
+            {
+              "binding_name": "#exp_bar_and_text_offset_y",
+              "binding_name_override": "#anchored_offset_value_y"
+            }
+          ],
+          "controls": [
+            {
+              "item_text_factory": {
+                "size": [ 100, 10 ],
+                "type": "factory",
+                "control_ids": {
+                  "item_text": "@hud.item_name_text_root",
+                  "jukebox_text": "@hud.jukebox_popup_text"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "horse_jump_rend@horse_jump_renderer": {
+          "layer": 7,
+          "size": [ "100%", 7.5 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "use_anchored_offset": true,
+          "property_bag": {
+            "#anchored_offset_value_y": 0.0,
+            "#size_binding_x": 0.0,
+            "#size_binding_y": 0.0
+          },
+          "bindings": [
+            {
+              "binding_name": "#exp_bar_and_text_offset_y",
+              "binding_name_override": "#anchored_offset_value_y"
+            },
+            {
+              "binding_name": "#exp_bar_size_x",
+              "binding_name_override": "#size_binding_x"
+            },
+            {
+              "binding_name": "#exp_bar_size_y",
+              "binding_name_override": "#size_binding_y"
+            }
+          ]
+        }
+      },
+      {
+        "dash_rend@dash_renderer": {
+          "layer": 7,
+          "size": [ "100%", 7.5 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "use_anchored_offset": true,
+          "property_bag": {
+            "#anchored_offset_value_y": 0.0,
+            "#size_binding_x": 0.0,
+            "#size_binding_y": 0.0
+          },
+          "bindings": [
+            {
+              "binding_name": "#exp_bar_and_text_offset_y",
+              "binding_name_override": "#anchored_offset_value_y"
+            },
+            {
+              "binding_name": "#exp_bar_size_x",
+              "binding_name_override": "#size_binding_x"
+            },
+            {
+              "binding_name": "#exp_bar_size_y",
+              "binding_name_override": "#size_binding_y"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
