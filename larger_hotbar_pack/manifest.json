@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Größere Hotbar für Pocket Edition - Vergrößert die Hotbar, Herzen, Hunger, XP-Bar und passt alle Positionen an",
+        "name": "Größere Hotbar Pack",
+        "uuid": "a1b2c3d4-e5f6-4789-a1b2-c3d4e5f67890",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 0]
+    },
+    "modules": [
+        {
+            "description": "Größere Hotbar Ressourcen",
+            "type": "resources",
+            "uuid": "b2c3d4e5-f6a7-4890-b2c3-d4e5f6a78901",
+            "version": [1, 0, 0]
+        }
+    ]
+}
