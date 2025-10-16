@@ -1,0 +1,11 @@
+{
+  "$hotbar_scale_factor": 1.5,
+  "$hud_scale_factor": 1.5,
+  "$heart_size": 13.5,
+  "$armor_size": 12,
+  "$hunger_size": 13.5,
+  "$bubble_size": 13.5,
+  "$xp_bar_scale": 1.5,
+  "$hotbar_slot_size": 30,
+  "$selected_hotbar_slot_size": 33
+}
