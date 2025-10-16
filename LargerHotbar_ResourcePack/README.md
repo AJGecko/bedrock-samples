@@ -1,7 +1,7 @@
 # Larger Hotbar UI Resource Pack für Minecraft Bedrock Edition (Mobile)
 
 ## Beschreibung
-Dieses Resource Pack vergrößert die Hotbar, Herzen, Hunger-Leiste und XP-Bar für eine bessere Sichtbarkeit auf mobilen Geräten (Handys/Tablets).
+Dieses Resource Pack vergrößert die Hotbar, Herzen, Hunger-Leiste und XP-Bar für eine bessere Sichtbarkeit auf mobilen Geräten (Handys/Tablets). Perfekt optimiert für Minecraft Bedrock Edition auf dem Handy!
 
 ## Änderungen
 - **Hotbar**: Von 40px auf 60px Höhe vergrößert
