@@ -1,0 +1,59 @@
+Größere Hotbar Pack für Minecraft Bedrock Edition
+Version: 1.0.0
+Release Date: 2025-10-16
+
+CHANGELOG:
+----------
+v1.0.0 (2025-10-16)
+- Erste Veröffentlichung / Initial release
+- 50% Vergrößerung aller HUD-Elemente
+- Hotbar: 30x33px (war 20x22px)
+- Herzen, Hunger, Rüstung, Blasen: 1.5x Größe
+- XP-Bar: 7.5px Höhe (war 5px)
+- Vollständig funktionsfähige UI-Buttons
+- Pocket Edition optimiert
+- Deutsche und englische Dokumentation
+- Kompatibel mit Minecraft 1.21.0+
+
+FEATURES:
+---------
+✅ Vergrößerte Hotbar (+50%)
+✅ Vergrößerte Herzen (+50%)
+✅ Vergrößerte Hunger-Bar (+50%)
+✅ Vergrößerte Rüstungsanzeige (+50%)
+✅ Vergrößerte XP-Bar (+50%)
+✅ Vergrößerte Luft-Blasen (+50%)
+✅ Alle Buttons funktionieren
+✅ Korrekte Hitboxen
+✅ Multiplayer & Realms kompatibel
+✅ Keine Performance-Einbußen
+
+SUPPORTED PLATFORMS:
+--------------------
+- Android (Smartphones & Tablets)
+- iOS (iPhone & iPad)
+- Windows 10/11 Mobile
+- Xbox (mit Touch-Controls)
+- PlayStation (mit Touch-Controls)
+- Nintendo Switch (mit Touch-Controls)
+
+REQUIREMENTS:
+-------------
+- Minecraft Bedrock Edition 1.21.0 oder höher
+- Pocket Edition Touch Controls (empfohlen)
+
+COMPATIBILITY:
+--------------
+✓ Vanilla Minecraft Bedrock
+✓ Realms
+✓ Multiplayer-Server
+✓ Alle Spielmodi (Überleben, Kreativ, Abenteuer)
+✓ Andere Ressourcenpacks (wenn sie HUD nicht ändern)
+
+KNOWN ISSUES:
+-------------
+Keine bekannten Probleme.
+
+SUPPORT:
+--------
+Siehe README.md, INSTALLATION.md oder TECHNICAL.md für Hilfe.
