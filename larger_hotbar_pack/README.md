@@ -1,6 +1,10 @@
 # Größere Hotbar Ressourcenpack für Minecraft Bedrock Edition (Mobile)
 
+🎮 **Komplett fertig und sofort einsetzbar!**
+
 Dieses Ressourcenpack macht die Hotbar und alle HUD-Elemente auf dem Handy größer für bessere Sichtbarkeit und einfachere Bedienung.
+
+> **Hinweis:** Dieses Pack ist vollständig konfiguriert und kann direkt in Minecraft verwendet werden. Einfach den Ordner kopieren und installieren!
 
 ## Funktionen
 
